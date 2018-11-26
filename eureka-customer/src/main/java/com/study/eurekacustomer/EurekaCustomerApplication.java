@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Random;
+
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
@@ -36,6 +38,11 @@ public class EurekaCustomerApplication {
 
     @GetMapping(value = "/hi")
     public String hi(@RequestParam String name) {
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "hello:"+name+" i am customer";
 //        return restTemplate.getForObject("http://CLIENT/hi?name="+name,String.class);
     }

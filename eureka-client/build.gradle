@@ -28,6 +28,9 @@ ext {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.0.4.RELEASE'
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
     compile('org.springframework.boot:spring-boot-starter-web')
     implementation('org.springframework.boot:spring-boot-starter')

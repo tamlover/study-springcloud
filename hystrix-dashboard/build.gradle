@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.4.RELEASE'
+        springBootVersion = '2.1.0.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -14,7 +14,6 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: 'war'
 
 group = 'com.study'
 version = '0.0.1-SNAPSHOT'
@@ -26,14 +25,12 @@ repositories {
 
 
 dependencies {
-    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
-    compile('org.springframework.boot:spring-boot-starter-actuator')
-    compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
-    compile('org.springframework.cloud:spring-cloud-starter-config')
-    compile('org.springframework.boot:spring-boot-starter-web') {
-        exclude module: 'spring-boot-starter-tomcat'
-    }
-    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.0.2.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix-dashboard
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix-dashboard', version: '2.0.2.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.1.0.RELEASE'
     implementation('org.springframework.boot:spring-boot-starter')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
@@ -47,4 +44,3 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
-
