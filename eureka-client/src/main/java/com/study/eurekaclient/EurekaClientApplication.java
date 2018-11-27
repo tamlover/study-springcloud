@@ -42,12 +42,6 @@ public class EurekaClientApplication {
     @GetMapping(value = "hi")
     @ResponseBody
     public String hi(@RequestParam String name) {
-
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return "hello," + name +" "+", i am "+port;
     }
 

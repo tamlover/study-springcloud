@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.6.RELEASE'
+        springBootVersion = '2.0.4.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -23,19 +23,21 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zipkin', version: '2.0.2.RELEASE'
-    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
-    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-feign
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-feign', version: '1.4.6.RELEASE'
 
-    implementation('org.springframework.boot:spring-boot-starter-web')
+dependencies {
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.4.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-stream-rabbit
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-stream-rabbit', version: '2.0.2.RELEASE'
+    implementation('org.springframework.boot:spring-boot-starter')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
 ext {
     springCloudVersion = 'Finchley.SR1'
 }
+
 
 dependencyManagement {
     imports {
